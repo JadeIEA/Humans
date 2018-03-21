@@ -23,7 +23,7 @@ public class RenderHuman extends RenderLiving<EntityHuman> {
 
     protected int variant = 0;
 
-    public static final ResourceLocation STEVE = DefaultPlayerSkin.getDefaultSkinLegacy();
+    public static final ResourceLocation STEVE = new ResourceLocation("minecraft:textures/entity/steve.png");
     public static final ResourceLocation ALEX = new ResourceLocation("minecraft:textures/entity/alex.png");
     public static final ResourceLocation LEGASTEVE = new ResourceLocation("humans:textures/entity/legasteve.png");
     public static final ResourceLocation THINSTEVE = new ResourceLocation("humans:textures/entity/thinsteve.png");
