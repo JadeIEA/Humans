@@ -14,9 +14,11 @@ import net.minecraft.client.renderer.OpenGlHelper;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.resources.DefaultPlayerSkin;
+import net.minecraft.client.resources.SkinManager;
 import net.minecraft.util.ResourceLocation;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 import java.util.UUID;
 
 public class RenderHuman extends RenderLiving<EntityHuman> {
@@ -52,8 +54,8 @@ public class RenderHuman extends RenderLiving<EntityHuman> {
                 this.mainModel = new ModelPlayer(0.0F, true);
                 break;
             case 3:
-                this.skin = Humans.proxy.getSkinFromCache("JadeIEA");
-                this.mainModel = new ModelPlayer(0.0F, false);
+                this.skin = Humans.proxy.getSkinFromCache(entity.getCustomNameTag());
+                this.mainModel = new ModelPlayer(0.0F, Humans.proxy.getIsSlim(entity.getCustomNameTag()));
                 break;
             case 4:
                 this.skin = LEGASTEVE;
@@ -73,5 +75,7 @@ public class RenderHuman extends RenderLiving<EntityHuman> {
     protected ResourceLocation getEntityTexture(EntityHuman entity) {
         return skin;
     }
+
+
 
 }

@@ -17,6 +17,7 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
+import java.util.Random;
 
 public class EntityHuman extends EntityMob {
 
@@ -56,7 +57,7 @@ public class EntityHuman extends EntityMob {
         if (this.getHumanVariant() > 1) {
             switch (this.getHumanVariant()) {
                 case 3:
-                    this.setCustomNameTag("JadeIEA");
+                    this.setCustomNameTag(getRandomCachedSkinUsername(this.rand));
                     break;
                 default:
                     break;
@@ -140,5 +141,10 @@ public class EntityHuman extends EntityMob {
         } else {
             return super.getHurtSound(damageSourceIn);
         }
+    }
+    private static String getRandomCachedSkinUsername(Random random) {
+        int skinId = random.nextInt(Humans.proxy.getCacheSize());
+        String username = Humans.proxy.getCacheUsernames()[skinId];
+        return username;
     }
 }
