@@ -5,6 +5,7 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.minecraft.MinecraftProfileTexture;
 import com.mojang.authlib.minecraft.MinecraftSessionService;
 import iea.iearthia.humans.handlers.RenderHandler;
+import iea.iearthia.humans.handlers.SoundsHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.DefaultPlayerSkin;
 import net.minecraft.client.resources.SkinManager;
@@ -29,6 +30,7 @@ public class ClientProxy extends CommonProxy {
     public void handleInitEvent(FMLInitializationEvent e) {
         super.handleInitEvent(e);
         skinCache.put("JadeIEA", getSkinFromUUID("1e25868f-6372-492d-8319-3a4627f0cc18"));
+        SoundsHandler.registerSounds();
 
     }
 
