@@ -36,7 +36,7 @@ public class ConfigHelper {
     }
 
     public static class HumansConfig {
-        public HumansSkin[] skins = { getSkin("JadeIEA", "1e25868f-6372-492d-8319-3a4627f0cc18") };
+        public HumansSkin[] skins = { getSkin("JadeIEA", "1e25868f-6372-492d-8319-3a4627f0cc18", true) };
     }
     public static class HumansSkin {
         public String username = "";
@@ -44,10 +44,11 @@ public class ConfigHelper {
         public boolean useSlim = false;
     }
 
-    private static HumansSkin getSkin(String username, String uuid) {
+    private static HumansSkin getSkin(String username, String uuid, boolean useSlimIn) {
         HumansSkin skin = new HumansSkin();
         skin.username = username;
         skin.uuid = uuid;
+        skin.useSlim = useSlimIn;
         return skin;
     }
 
